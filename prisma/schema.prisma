@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum TTranslation {
+  EN
+  FR
+}
+
+enum TProjectTag {
+  PYTHON
+  VIDEO_GAME
+  JAVASCRIPT
+  TYPESCRIPT
+  GOLANG
+  RUST
+  CPP
+  C
+  FRONTEND
+  BACKEND
+}
+
+model Project {
+  id String @id @default(uuid())
+  translations ProjectTranslation[]
+  cover String?
+  coverAlt String?
+  github String?
+  website String?
+  tags ProjectTag[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ProjectTranslation {
+  id String @id @default(uuid())
+  lang TTranslation
+  title String
+  description String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  projectId String
+  project Project @relation(fields: [projectId], references: [id])
+}
+
+model ProjectTag {
+  id String @id @default(uuid())
+  value TProjectTag
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  projectId String
+  project Project @relation(fields: [projectId], references: [id])
+}
