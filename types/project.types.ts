@@ -1,3 +1,4 @@
+import { TProjectTag } from "@prisma/client";
 import { Translation } from "./translation.types";
 
 export type ProjectTag =
@@ -20,6 +21,7 @@ export interface Project {
     coverAlt?: string;
     github?: string;
     website?: string;
+    markdownId?: string;
     tags: ProjectTag[];
 }
 
@@ -27,6 +29,7 @@ export interface ProjectListingParams {
     page: number;
     pageSize: number;
     translation?: Translation;
+    tags?: TProjectTag[];
 }
 
 export interface ProjectListingResult {

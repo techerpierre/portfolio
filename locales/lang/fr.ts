@@ -1,5 +1,11 @@
 export default {
+    "navigation": {
+        "projects": "Les projets",
+        "blog": "Le blog",
+    },
     "home": {
+        "hero_title": "Pierre Techer",
+        "hero_content": "Developper Fullstack",
         "about_me": "A propos de moi",
         "presentation": [
             `
@@ -26,14 +32,8 @@ export default {
             `, 
         ],
         "skills": "Mes compétences",
-        "skill_categories": {
-            "PROGRAMMING_LANGUAGE": "Languages de programmation: ",
-            "FRONT_END_TECHNOLOGY": "Technologies front-end: ",
-            "BACK_END_TECHNOLOGY": "Technologies back-end: ",
-            "VIDEO_GAME": "Jeux vidéos: ",
-            "OTHER_TECHNOLOGY_OR_TOOL": "Autre technologies et outils: ",
-        },
         "projects": "Mes projets",
+        "articles": "Mon blog",
     },
     "project_tags": {
         "PYTHON": "Python",
@@ -47,5 +47,47 @@ export default {
         "FRONTEND": "Frontend",
         "BACKEND": "Backend",
     },
+    "article_tags": {
+        "PYTHON": "Python",
+        "VIDEO_GAME": "Jeux videos",
+        "JAVASCRIPT": "Javascript",
+        "TYPESCRIPT": "Typescript",
+        "GOLANG": "Golang",
+        "RUST": "Rust",
+        "CPP": "C++",
+        "C": "C",
+        "FRONTEND": "Frontend",
+        "BACKEND": "Backend",
+        "DEVELOPPERS": "Développers",
+        "IA": "IA",
+    },
+    "projects": {
+        "empty_list_placeholder": "Tiens... On dirait qu’il n’y a aucun projet pour le moment.",
+    },
+    "articles": {
+        "searchbar_placeholder": "Un super article...",
+        "empty_list_placeholder": "Hmm, aucun article à l’horizon !"
+    },
+    "login": {
+        "title": "Connection",
+        "email_label": "Email",
+        "password_label": "Mot de passe",
+        "remember_me": "Se souvenir de moi",
+        "submit": "Se connecter",
+        "error": "L'email ou le mot de passe sont invalide."
+    },
+    "admin": {
+        "navigation": {
+            "home": "Acceuil",
+            "projects": "Projets",
+            "articles": "Articles",
+        },
+    },
+    "auth_banner": {
+        "text": "Vous êtes connectés en tant que",
+        "link": "Aller vers le Dashboard",
+    },
     "see_more": "Voir plus",
+    "all_tags": "Tous",
+    "cancel": "Annuler",
 } as const;

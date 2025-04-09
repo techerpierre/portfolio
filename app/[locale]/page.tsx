@@ -1,19 +1,19 @@
-import { HorizontalBar } from "@/components/atoms/HorizontalBar";
-import { Presentation } from "@/components/organisms/Presentation";
-import { Projects } from "@/components/organisms/Projects";
-import { Skills } from "@/components/organisms/Skills";
-import { getI18n } from "@/locales/server";
+import { Presentation } from "@/components/organisms/presentation/Presentation";
+import { ProjectsPreview } from "@/components/organisms/projects/ProjectsPreview";
+import { Skills } from "@/components/organisms/presentation/Skills";
+import { MainLayout } from "@/components/layouts/MainLayout";
+import { ArticlesPreview } from "@/components/organisms/articles/ArticlesPreview";
+import { Hero } from "@/components/organisms/presentation/Hero";
 
 export default async function Home() {
-  const t = await getI18n();
-
   return (
-    <>
+    <MainLayout>
+      <span className="h-16 block"></span>
+      <Hero/>
       <Presentation/>
-      <HorizontalBar/>
       <Skills/>
-      <HorizontalBar/>
-      <Projects/>
-    </>
+      <ProjectsPreview/>
+      <ArticlesPreview/>
+    </MainLayout>
   );
 }

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-import { MainLayout } from "@/components/layouts/MainLayout";
+import { AuthenticatedBanner } from "@/components/organisms/auth/AuthenticatedBanner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,15 +17,18 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Techer Pierre",
   description: "My portfolio",
+  icons: {
+    icon: "/images/logo_pierre.png"
+  }
 };
 
 export default async function RootLayout({
   children,
-  params
+  params,
 }: Readonly<{
   children: React.ReactNode;
   params: Promise<{
-    locale: string
+    locale: string;
   }>;
 }>) {
   const { locale } = await params;
@@ -36,9 +39,8 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers locale={locale}>
-          <MainLayout>
-            {children}
-          </MainLayout>
+          <AuthenticatedBanner/>
+          {children}
         </Providers>
       </body>
     </html>
