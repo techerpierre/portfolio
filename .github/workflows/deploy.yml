@@ -21,16 +21,16 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t rg.fr-par.scw.cloud/YOUR_NAMESPACE/YOUR_IMAGE_NAME:latest .
+          docker build -t rg.fr-par.scw.cloud/funcscwportfoliopierreztgfpdeh/nextjs-portfolio:latest .
 
       - name: Push Docker image
         run: |
-          docker push rg.fr-par.scw.cloud/YOUR_NAMESPACE/YOUR_IMAGE_NAME:latest
+          docker push rg.fr-par.scw.cloud/funcscwportfoliopierreztgfpdeh/nextjs-portfolio:latest
 
       - name: Deploy to Scaleway
         run: |
           curl -X PATCH \
             -H "X-Auth-Token: ${{ secrets.SCW_SECRET_KEY }}" \
             -H "Content-Type: application/json" \
-            -d '{"image":"rg.fr-par.scw.cloud/YOUR_NAMESPACE/YOUR_IMAGE_NAME:latest"}' \
-            "https://api.scaleway.com/containers/v1/regions/fr-par/containers/YOUR_CONTAINER_ID"
+            -d '{"image":"rg.fr-par.scw.cloud/funcscwportfoliopierreztgfpdeh/YOUR_IMAGE_NAME:latest"}' \
+            "https://api.scaleway.com/containers/v1/regions/fr-par/containers/nextjs-portfolio"
