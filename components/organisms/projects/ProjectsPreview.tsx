@@ -12,7 +12,7 @@ export const ProjectsPreview: FC = async () => {
     const local = await getCurrentLocale();
     const projects = await ProjectService.list({ page: 0, pageSize: MAX_DISPLAYED_PROJECT_COUNT, translation: local });
 
-    return <div className="bg-gray-200 py-10 md:py-20 mt-16">
+    return <div className="bg-gray-100 py-10 md:py-20">
             <Section title={"🏗️ " + t("home.projects")}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {projects.results.map((project) => (

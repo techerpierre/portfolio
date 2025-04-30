@@ -19,16 +19,13 @@ export const ProjectCard: FC<Project> = async ({
 
     return (
         <article className="bg-white border border-gray-200 shadow-md rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-            {cover && coverAlt && (
-                <Image
-                    src={cover}
-                    alt={coverAlt}
-                    width={400}
-                    height={250}
-                    className="w-full h-40 object-cover"
-                />
-            )}
-
+            <Image
+                src={cover ?? "/images/placeholder.png"}
+                alt={coverAlt ?? "Image placeholder"}
+                width={400}
+                height={250}
+                className="w-full h-40 object-cover"
+            />
             <div className="p-5">
                 <Link href={getProjectRedirectURI(title, id)}>
                     <h3 className="text-lg font-semibold text-gray-800 hover:underline">{title}</h3>

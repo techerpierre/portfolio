@@ -5,7 +5,7 @@ export default {
     },
     "home": {
         "hero_title": "Pierre Techer",
-        "hero_content": "Developper Fullstack",
+        "hero_content": "Développeur Fullstack : Web, Jeux, Bas niveau - une passion pour chaque ligne de code.",
         "about_me": "A propos de moi",
         "presentation": [
             `
@@ -81,11 +81,26 @@ export default {
             "home": "Acceuil",
             "projects": "Projets",
             "articles": "Articles",
+            "assets": "Ressources",
         },
+        "fetching_errors": {
+            "images": "Impossible de récuperer les images sur le server",
+        },
+        "assets": {
+            "image_visibility": {
+                "public": "Publique",
+                "private": "Privé",
+            },
+            "add": "Ajouter"
+        }
     },
     "auth_banner": {
-        "text": "Vous êtes connectés en tant que",
+        "text": "Vous êtes connecté en tant que",
         "link": "Aller vers le Dashboard",
+    },
+    "flags": {
+        "frAlt": "Drapeau français",
+        "enAlt": "Drapeau englais",
     },
     "see_more": "Voir plus",
     "all_tags": "Tous",

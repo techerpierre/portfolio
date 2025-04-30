@@ -13,3 +13,13 @@ export interface ImageWithoutBuffer {
     id: string;
     public: boolean;
 }
+
+export interface ImageListingParams {
+    page: number;
+    pageSize: number;
+}
+
+export interface ImageListingResult {
+    results: Image[];
+    count: number;
+}

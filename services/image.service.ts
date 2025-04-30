@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
-import { CreateImageData, Image } from "@/types/image.types";
+import { CreateImageData, Image, ImageListingParams, ImageListingResult } from "@/types/image.types";
 import EncryptionService from "./encryption.service";
+import { paginate } from "@/helpers/paginate";
 
 export class ImageService {
     async findById(id: string): Promise<Image | null> {
@@ -28,6 +29,24 @@ export class ImageService {
             content: EncryptionService.base64ToBuffer(image.content),
             public: image.public,
         };
+    }
+
+    async list({ page, pageSize }: ImageListingParams): Promise<ImageListingResult> {
+        const count = await prisma.image.count();
+        const first = paginate(page, pageSize, count);
+        const images = await prisma.image.findMany({
+            skip: first,
+            take: pageSize,
+        });
+
+        return {
+            results: images.map((image): Image => ({
+                id: image.id,
+                content: EncryptionService.base64ToBuffer(image.content),
+                public: image.public,
+            })),
+            count,
+        }
     }
 }
 

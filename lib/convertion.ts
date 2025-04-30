@@ -6,4 +6,5 @@ export class Conversion {
     }
 }
 
-export default new Conversion();
+const convertion = new Conversion();
+export default convertion;

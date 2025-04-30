@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgres"
   url      = env("DATABASE_URL")
 }
 
@@ -44,7 +44,7 @@ model Project {
   coverAlt String?
   github String?
   website String?
-  tags ProjectTag[]
+  tags TProjectTag[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -61,14 +61,6 @@ model ProjectTranslation {
   project Project @relation(fields: [projectId], references: [id])
 
   @@unique([projectId, lang])
-}
-
-model ProjectTag {
-  id String @id @default(uuid())
-  value TProjectTag @unique
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  project Project[]
 }
 
 // ARTICLES
@@ -90,7 +82,7 @@ enum TArticleTag {
 
 model Article {
   id String @id @default(uuid())
-  tags ArticleTag[]
+  tags TArticleTag[]
   cover String?
   coverAlt String?
   translations ArticleTranslation[]
@@ -110,14 +102,6 @@ model ArticleTranslation {
   article Article @relation(fields: [articleId], references: [id])
 
   @@unique([articleId, lang])
-}
-
-model ArticleTag {
-  id String @id @default(uuid())
-  value TArticleTag @unique
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  articles Article[]
 }
 
 model Markdown {

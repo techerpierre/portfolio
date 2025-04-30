@@ -18,4 +18,5 @@ export class Jwt {
     }
 }
 
-export default new Jwt();
+const jwtI = new Jwt()
+export default jwtI;

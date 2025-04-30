@@ -11,7 +11,8 @@ export const AdminMenu: FC = async () => {
     const navigation: [number, string, string][] = [
         [0, "/admin", "🏡 " + t("admin.navigation.home")],
         [1, "/admin/projects", "🏗️ " + t("admin.navigation.projects")],
-        [2, "/admin/articles", "📖" + t("admin.navigation.articles")],
+        [2, "/admin/articles", "📖 " + t("admin.navigation.articles")],
+        [3, "/admin/assets", "🖼️ " + t("admin.navigation.assets")],
     ]
 
     return <menu className="m-2 p-2 flex flex-row justify-between items-center bg-gray-100 rounded-lg border border-gray-200">

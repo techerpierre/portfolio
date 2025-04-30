@@ -13,11 +13,7 @@ export class ProjectService {
         }: ProjectListingParams): Promise<ProjectListingResult> {
         const tagsQuery = tags.length > 0 ? {
             tags: {
-                some: {
-                    value: {
-                      in: tags,
-                    },
-                },
+                hasSome: tags,
             },
         } : null;
         const count = await prisma.project.count({
@@ -28,13 +24,12 @@ export class ProjectService {
             skip: first,
             take: pageSize,
             where: {
-                ...tagsQuery,
+                ...tagsQuery
             },
             orderBy: {
                 createdAt: "asc",
             },
             include: {
-                tags: true,
                 translations: {
                     where: {
                         lang: translation.toUpperCase() as TTranslation,
@@ -54,7 +49,7 @@ export class ProjectService {
                 github: project.github ?? undefined,
                 website: project.website ?? undefined,
                 markdownId: project.translations[0].markdownId ?? undefined,
-                tags: project.tags.map((tag) => tag.value)
+                tags: project.tags,
             })),
         };
     }
@@ -63,7 +58,6 @@ export class ProjectService {
         const project = await prisma.project.findUnique({
             where: { id },
             include: {
-                tags: true,
                 translations: {
                     where: {
                         lang: translation.toUpperCase() as TTranslation,
@@ -81,7 +75,7 @@ export class ProjectService {
             github: project.github ?? undefined,
             website: project.website ?? undefined,
             markdownId: project.translations[0].markdownId ?? undefined,
-            tags: project.tags.map((tag) => tag.value)
+            tags: project.tags,
         } : null;
     }
 }

@@ -15,4 +15,5 @@ export class Argon2 {
     }
 }
 
-export default new Argon2();
+const argon2I = new Argon2();
+export default argon2I;

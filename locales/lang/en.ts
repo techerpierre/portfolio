@@ -5,7 +5,7 @@ export default {
     },
     "home": {
         "hero_title": "Pierre Techer",
-        "hero_content": "Developper...",
+        "hero_content": "Fullstack Developer: Web, Games, Low-Level - a passion in every line of code.",
         "about_me": "About me",
         "presentation": [
             `
@@ -80,13 +80,28 @@ export default {
             "home": "Home",
             "projects": "Projects",
             "articles": "Articles",
+            "assets": "Assets",
         },
+        "fetching_errors": {
+            "images": "Enable to fetch images on server",
+        },
+        "assets": {
+            "image_visibility": {
+                "public": "Public",
+                "private": "Private",
+            },
+            "add": "New"
+        }
     },
     "auth_banner": {
         "text": "You are logged in as",
         "link": "Go to the Dashboard",
     },
-    "all_tags": "All tags",
+    "flags": {
+        "frAlt": "Frensh flag",
+        "enAlt": "English flag",
+    },
+    "all_tags": "All",
     "see_more": "See more",
     "cancel": "Cancel",
 } as const;

@@ -118,7 +118,7 @@ const skills: {
 export const Skills: FC = async () => {
     const t = await getI18n();
 
-    return <div className="py-10 md:py-20">
+    return <div className="py-10 md:py-20 mb-16">
         <Section title={"🚀 " + t("home.skills")}>
             <ul className="list-none grid grid-cols-[repeat(auto-fill,minmax(50px,1fr))] gap-2 sm:gap-5 sm:grid-cols-[repeat(auto-fill,minmax(100px,1fr))]">
                 {skills.map(skill => (

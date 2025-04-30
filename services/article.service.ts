@@ -13,7 +13,7 @@ export class ArticleService {
         searchText,
     }: ArticleListingParams): Promise<ArticleListingResult> {
         const translationQuery = { translations: { some: {}}};
-        const tagsQuery = tags.length > 0 ? { tags: { some: { value: { in: tags }}}} : null;
+        const tagsQuery = tags.length > 0 ? { tags: { hasSome: tags }} : null;
         const searchQuery = {
             translations: {
                 some: {
@@ -34,7 +34,6 @@ export class ArticleService {
             where: { ...query },
             orderBy: { createdAt: "asc" },
             include: {
-                tags: true,
                 translations: {
                     where: {
                         OR: [
@@ -54,7 +53,7 @@ export class ArticleService {
                 title: article.translations[0]?.title ?? "Invalid Title",
                 preview: article.translations[0]?.preview ?? "Invalid Title",
                 markdownId: article.translations[0]?.markdownId ?? undefined,
-                tags: article.tags.map(tag => tag.value),
+                tags: article.tags,
                 cover: article.cover ?? undefined,
                 coverAlt: article.coverAlt ?? undefined,
             }))
@@ -65,7 +64,6 @@ export class ArticleService {
         const article = await prisma.article.findUnique({
             where: { id },
             include: {
-                tags: true,
                 translations: {
                     where: {
                         OR: [
@@ -83,7 +81,7 @@ export class ArticleService {
             title: article.translations[0].title,
             preview: article.translations[0].preview,
             markdownId: article.translations[0].markdownId ?? undefined,
-            tags: article.tags.map(tag => tag.value),
+            tags: article.tags,
             cover: article.cover ?? undefined,
             coverAlt: article.coverAlt ?? undefined,
         } : null;

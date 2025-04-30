@@ -8,7 +8,7 @@ export const Hero: FC = async () => {
     const t = await getI18n();
 
     return (
-        <div className="py-16 md:py-24 bg-gradient-to-br from-white to-gray-50">
+        <div className="py-24 md:py-36 relative">
             <Section>
                 <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
                     <div className="w-full lg:w-1/2 text-center lg:text-left">

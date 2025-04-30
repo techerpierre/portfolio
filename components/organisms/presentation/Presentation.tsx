@@ -9,14 +9,13 @@ export const Presentation: FC = async () => {
   const getRandomCover = (): string => {
     const covers = [
       "default.png",
-      "hacker.png",
     ];
     const coverIndex = Math.floor(Math.random() * covers.length);
     return `/images/presentation-covers/${covers[coverIndex]}`;
   }
 
   return (
-    <div className="bg-gray-200 py-10 md:py-20">
+    <div className="bg-gray-100 py-10 md:py-20">
       <Section title={"🧑‍💻 " + t("home.about_me")}>
         <div className="flex flex-col md:flex-row gap-10 items-center">
           <div className="w-64 flex-shrink-0">
