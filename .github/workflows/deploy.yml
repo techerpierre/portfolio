@@ -1,0 +1,36 @@
+name: Deploy Next.js to Scaleway Container
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log in to Scaleway Container Registry
+        run: echo "${{ secrets.SCW_SECRET_KEY }}" | docker login rg.fr-par.scw.cloud -u ${{ secrets.SCW_ACCESS_KEY }} --password-stdin
+
+      - name: Build Docker image
+        run: |
+          docker build -t rg.fr-par.scw.cloud/YOUR_NAMESPACE/YOUR_IMAGE_NAME:latest .
+
+      - name: Push Docker image
+        run: |
+          docker push rg.fr-par.scw.cloud/YOUR_NAMESPACE/YOUR_IMAGE_NAME:latest
+
+      - name: Deploy to Scaleway
+        run: |
+          curl -X PATCH \
+            -H "X-Auth-Token: ${{ secrets.SCW_SECRET_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d '{"image":"rg.fr-par.scw.cloud/YOUR_NAMESPACE/YOUR_IMAGE_NAME:latest"}' \
+            "https://api.scaleway.com/containers/v1/regions/fr-par/containers/YOUR_CONTAINER_ID"
