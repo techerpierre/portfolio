@@ -18,6 +18,10 @@ export const Hero: FC = async () => {
                         <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0">
                             {t("home.hero_content")}
                         </p>
+                        <span className="block text-lg text-gray-900 mb-8 max-w-xl mx-auto lg:mx-0">
+                            <span className="text-gray-600">{t("home.hero_contact_me")}: </span>
+                            <a href="mailto:techerpierre.pro@gmail.com">techerpierre.pro@gmail.com</a>
+                        </span>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                             <Link
                                 href="/projects"

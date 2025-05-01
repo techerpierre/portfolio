@@ -6,6 +6,7 @@ export default {
     "home": {
         "hero_title": "Pierre Techer",
         "hero_content": "Développeur Fullstack : Web, Jeux, Bas niveau - une passion pour chaque ligne de code.",
+        "hero_contact_me": "Contactez moi",
         "about_me": "A propos de moi",
         "presentation": [
             `
@@ -30,6 +31,18 @@ export default {
                 J'ai beaucoup appris en autodidacte
                 et je continue toujours à apprendre de nouveaux langages et de nouvelles technologies.
             `, 
+        ],
+        "formations": [
+            `
+                J’ai suivi une formation d’Intégrateur Web,
+                orientée vers la création de sites web modernes et accessibles.
+                Elle m’a permis d’apprendre à structurer des pages avec HTML,
+                les styliser avec CSS,
+                et à les rendre dynamiques grâce à JavaScript.
+                Cette formation couvre également des notions essentielles comme l’adaptabilité (responsive design),
+                le référencement (SEO),
+                l’accessibilité numérique et les bonnes pratiques du web.
+            `,
         ],
         "skills": "Mes compétences",
         "projects": "Mes projets",
