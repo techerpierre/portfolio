@@ -6,6 +6,7 @@ export default {
     "home": {
         "hero_title": "Pierre Techer",
         "hero_content": "Fullstack Developer: Web, Games, Low-Level - a passion in every line of code.",
+        "hero_contact_me": "Contact me",
         "about_me": "About me",
         "presentation": [
             `
@@ -29,6 +30,15 @@ export default {
             `
                 I have learned a lot on my own and I continue to learn new languages and new technologies.
             `, 
+        ],
+        "formations": [
+            `
+                I completed a Web Integrator training program focused on creating modern and accessible websites.
+                It taught me how to structure pages using HTML,
+                style them with CSS, and make them dynamic with JavaScript.
+                The training also covered essential topics such as responsive design,
+                SEO, digital accessibility, and web best practices.
+            `,
         ],
         "skills": "My skills",
         "projects": "My projects",

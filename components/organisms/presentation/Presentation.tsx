@@ -35,6 +35,9 @@ export const Presentation: FC = async () => {
             <p>{t("home.presentation.4")}</p>
           </div>
         </div>
+        <div className="text-gray-800 max-w-2xl text-justify mt-8 mx-auto">
+          <p>{t("home.formations.0")}</p>
+        </div>
       </Section>
     </div>
   );
